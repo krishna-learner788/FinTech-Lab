@@ -1,5 +1,6 @@
 package com.customer.database.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,6 +48,7 @@ public class CustomerAddress {
 
     // ==================== Relationship to Classification ====================
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CSTAD_ADDR_COMP_TYP_CLSF_ID", referencedColumnName = "CSTCL_ID",
                 insertable = false, updatable = false)

@@ -68,4 +68,11 @@ public class CustomerIdentificationController {
         List<CustomerIdentification> records = service.findByType(type);
         return ResponseEntity.ok(ApiResponse.success("Identification records for type: " + type, records));
     }
+
+    @GetMapping("/customer/{customerIdentifier}")
+    public ResponseEntity<ApiResponse<List<CustomerIdentification>>> findByCustomerIdentifier(
+            @PathVariable String customerIdentifier) {
+        List<CustomerIdentification> records = service.findActiveByCustomerIdentifier(customerIdentifier);
+        return ResponseEntity.ok(ApiResponse.success("Identification records for: " + customerIdentifier, records));
+    }
 }

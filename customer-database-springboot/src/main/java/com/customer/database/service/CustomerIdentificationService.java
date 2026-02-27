@@ -21,6 +21,7 @@ public class CustomerIdentificationService {
     @Transactional
     public CustomerIdentification insert(CustomerIdentificationRequest request) {
         CustomerIdentification entity = CustomerIdentification.builder()
+                .customerIdentifier(request.getCustomerIdentifier())
                 .identificationType(request.getIdentificationType())
                 .identificationItem(request.getIdentificationItem())
                 .effectiveDate(LocalDate.parse(request.getEffectiveDate()))
@@ -45,6 +46,10 @@ public class CustomerIdentificationService {
 
     public List<CustomerIdentification> findByType(String type) {
         return repository.findByIdentificationType(type);
+    }
+
+    public List<CustomerIdentification> findActiveByCustomerIdentifier(String customerIdentifier) {
+        return repository.findActiveByCustomerIdentifier(customerIdentifier);
     }
 
     @Transactional

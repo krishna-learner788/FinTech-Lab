@@ -14,6 +14,9 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CustomerIdentificationRequest {
 
+    @NotBlank(message = "Customer identifier is required")
+    private String customerIdentifier;
+
     @NotBlank(message = "Identification type is required")
     private String identificationType;
 

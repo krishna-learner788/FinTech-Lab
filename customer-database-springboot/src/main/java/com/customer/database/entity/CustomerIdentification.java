@@ -31,6 +31,9 @@ public class CustomerIdentification {
     @Column(name = "CSTID_ID")
     private Long identificationId;
 
+    @Column(name = "CSTID_CUST_ID", nullable = false, length = 50)
+    private String customerIdentifier;
+
     @Column(name = "CSTID_TYP", nullable = false, length = 100)
     private String identificationType;
 

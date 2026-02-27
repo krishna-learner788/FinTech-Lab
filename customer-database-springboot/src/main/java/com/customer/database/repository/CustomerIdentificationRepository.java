@@ -20,4 +20,7 @@ public interface CustomerIdentificationRepository extends JpaRepository<Customer
 
     @Query("SELECT c FROM CustomerIdentification c WHERE c.identificationType = :type AND c.identificationItem = :item AND c.crudValue <> 'D'")
     List<CustomerIdentification> findActiveByTypeAndItem(@Param("type") String type, @Param("item") String item);
+
+    @Query("SELECT c FROM CustomerIdentification c WHERE c.customerIdentifier = :custId AND c.crudValue <> 'D' ORDER BY c.effectiveDate DESC")
+    List<CustomerIdentification> findActiveByCustomerIdentifier(@Param("custId") String customerIdentifier);
 }
