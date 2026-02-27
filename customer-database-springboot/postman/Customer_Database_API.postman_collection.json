@@ -1,0 +1,394 @@
+{
+  "info": {
+    "name": "Customer Database API",
+    "description": "Complete API collection for Customer Database Spring Boot Application.\n\nInsert-Only Paradigm:\n- POST /insert → Create new record (CRUD_VALUE = C)\n- POST /logical-update → Insert new row with CRUD_VALUE = U\n- POST /logical-delete → Insert new row with CRUD_VALUE = D\n- GET endpoints → Retrieve records (all history or active only)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/api/v1"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Customer Classification",
+      "item": [
+        {
+          "name": "Insert Classification - Customer Type",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/classifications/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classificationType\": \"CUSTOMER_TYPE\",\n  \"classificationTypeValue\": \"Individual\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Insert Classification - ID Type (Aadhaar)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/classifications/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classificationType\": \"ID_TYPE\",\n  \"classificationTypeValue\": \"Aadhaar\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Insert Classification - Name Type (First Name)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/classifications/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classificationType\": \"NAME_TYPE\",\n  \"classificationTypeValue\": \"First Name\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Insert Classification - Address Type (First Line)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/classifications/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classificationType\": \"ADDRESS_TYPE\",\n  \"classificationTypeValue\": \"First Line\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Logical Update Classification",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/classifications/logical-update"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classificationType\": \"CUSTOMER_TYPE\",\n  \"classificationTypeValue\": \"Individual - Updated\",\n  \"effectiveDate\": \"2026-02-25\",\n  \"crudValue\": \"U\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_UPDATE\",\n    \"localTs\": \"2026-02-25T10:00:00\",\n    \"acptTs\": \"2026-02-25T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Logical Delete Classification",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/classifications/logical-delete"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classificationType\": \"CUSTOMER_TYPE\",\n  \"classificationTypeValue\": \"Individual\",\n  \"effectiveDate\": \"2026-02-26\",\n  \"crudValue\": \"D\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_DELETE\",\n    \"localTs\": \"2026-02-26T10:00:00\",\n    \"acptTs\": \"2026-02-26T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Classifications (Full History)",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/classifications"}
+          }
+        },
+        {
+          "name": "Get Active Classifications",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/classifications/active"}
+          }
+        },
+        {
+          "name": "Get Classification by ID",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/classifications/1"}
+          }
+        },
+        {
+          "name": "Get Classifications by Type",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/classifications/type/CUSTOMER_TYPE"}
+          }
+        },
+        {
+          "name": "Get Active Classifications by Type",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/classifications/type/ID_TYPE/active"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Customer Identification",
+      "item": [
+        {
+          "name": "Insert Identification (DB Sequence)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/identifications/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identificationType\": \"INTERNAL_ID\",\n  \"identificationItem\": \"CUST-2026-0001\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Insert Identification (Phone Number)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/identifications/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identificationType\": \"PHONE\",\n  \"identificationItem\": \"+91-9876543210\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Identifications",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/identifications"}
+          }
+        },
+        {
+          "name": "Get Active Identifications",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/identifications/active"}
+          }
+        },
+        {
+          "name": "Get Identification by ID",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/identifications/1"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Customer Details",
+      "item": [
+        {
+          "name": "Insert Customer Details",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/customer-details/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerNumber\": \"CUST-2026-0001\",\n  \"customerType\": \"Individual\",\n  \"customerFullName\": \"Krishna Kumar\",\n  \"customerDobDoi\": \"1995-06-15\",\n  \"customerStatus\": \"ACTIVE\",\n  \"customerContactNumber\": \"+91-11-12345678\",\n  \"customerMobileNumber\": \"+91-9876543210\",\n  \"customerEmailId\": \"krishna.kumar@example.com\",\n  \"customerCountryOfOrigination\": \"India\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Logical Update Customer Details (Email Change)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/customer-details/logical-update"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerNumber\": \"CUST-2026-0001\",\n  \"customerType\": \"Individual\",\n  \"customerFullName\": \"Krishna Kumar\",\n  \"customerDobDoi\": \"1995-06-15\",\n  \"customerStatus\": \"ACTIVE\",\n  \"customerContactNumber\": \"+91-11-12345678\",\n  \"customerMobileNumber\": \"+91-9876543210\",\n  \"customerEmailId\": \"krishna.new@example.com\",\n  \"customerCountryOfOrigination\": \"India\",\n  \"effectiveDate\": \"2026-02-25\",\n  \"crudValue\": \"U\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_UPDATE\",\n    \"localTs\": \"2026-02-25T10:00:00\",\n    \"acptTs\": \"2026-02-25T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Customer Details",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/customer-details"}
+          }
+        },
+        {
+          "name": "Get Active Customer Details",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/customer-details/active"}
+          }
+        },
+        {
+          "name": "Get Customer by Number",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/customer-details/customer/CUST-2026-0001"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Customer Name",
+      "item": [
+        {
+          "name": "Insert Customer Name (First Name)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/customer-names/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerIdentifier\": \"CUST-2026-0001\",\n  \"nameComponentTypeClassificationId\": 3,\n  \"customerNameValue\": \"Krishna\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Insert Customer Name (Last Name)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/customer-names/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerIdentifier\": \"CUST-2026-0001\",\n  \"nameComponentTypeClassificationId\": 5,\n  \"customerNameValue\": \"Kumar\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Customer Names",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/customer-names"}
+          }
+        },
+        {
+          "name": "Get Customer Names by Customer ID",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/customer-names/customer/CUST-2026-0001"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Customer Proof of Identity",
+      "item": [
+        {
+          "name": "Insert Proof - Aadhaar",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/proof-of-identity/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerIdentifier\": \"CUST-2026-0001\",\n  \"proofTypeClassificationId\": 6,\n  \"classificationTypeValue\": \"1234-5678-9012\",\n  \"startDate\": \"2020-01-01\",\n  \"endDate\": \"9999-12-31\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Insert Proof - Passport",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/proof-of-identity/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerIdentifier\": \"CUST-2026-0001\",\n  \"proofTypeClassificationId\": 7,\n  \"classificationTypeValue\": \"A1234567\",\n  \"startDate\": \"2023-06-01\",\n  \"endDate\": \"2033-05-31\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Logical Update Proof - Aadhaar (value correction)",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/proof-of-identity/logical-update"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerIdentifier\": \"CUST-2026-0001\",\n  \"proofTypeClassificationId\": 6,\n  \"classificationTypeValue\": \"1234-5678-9999\",\n  \"startDate\": \"2020-01-01\",\n  \"endDate\": \"9999-12-31\",\n  \"effectiveDate\": \"2026-02-25\",\n  \"crudValue\": \"U\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_UPDATE\",\n    \"localTs\": \"2026-02-25T10:00:00\",\n    \"acptTs\": \"2026-02-25T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Proofs of Identity",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/proof-of-identity"}
+          }
+        },
+        {
+          "name": "Get Active Proofs",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/proof-of-identity/active"}
+          }
+        },
+        {
+          "name": "Get Proofs by Customer ID",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/proof-of-identity/customer/CUST-2026-0001"}
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Customer Address",
+      "item": [
+        {
+          "name": "Insert Address - First Line",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/customer-addresses/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerIdentifier\": \"CUST-2026-0001\",\n  \"addressComponentTypeClassificationId\": 11,\n  \"customerAddressValue\": \"42, MG Road\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Insert Address - City",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/customer-addresses/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerIdentifier\": \"CUST-2026-0001\",\n  \"addressComponentTypeClassificationId\": 14,\n  \"customerAddressValue\": \"Bangalore\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Insert Address - Postal Code",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/customer-addresses/insert"},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerIdentifier\": \"CUST-2026-0001\",\n  \"addressComponentTypeClassificationId\": 17,\n  \"customerAddressValue\": \"560001\",\n  \"effectiveDate\": \"2026-02-24\",\n  \"crudValue\": \"C\",\n  \"auditFields\": {\n    \"userId\": \"admin\",\n    \"wsId\": \"POSTMAN\",\n    \"prgmId\": \"MANUAL_INSERT\",\n    \"localTs\": \"2026-02-24T10:00:00\",\n    \"acptTs\": \"2026-02-24T10:00:00\",\n    \"acptTsUtcOfst\": \"+05:30\",\n    \"ldbid\": 1\n  }\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Customer Addresses",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/customer-addresses"}
+          }
+        },
+        {
+          "name": "Get Active Customer Addresses",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/customer-addresses/active"}
+          }
+        },
+        {
+          "name": "Get Addresses by Customer ID",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/customer-addresses/customer/CUST-2026-0001"}
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+-- ===================================================================
+-- INITIAL CLASSIFICATION DATA (INSERT-ONLY)
+-- Run this after tables are created by Hibernate DDL auto.
+-- ===================================================================
+
+-- ===================== CUSTOMER TYPES =====================
+INSERT IGNORE INTO CUSTOMER_CLASSIFICATION (CSTCL_TYP, CSTCL_TYP_VALUE, CSTCL_EFCTV_DT, CSTCL_CRUD_VALUE,
+    CSTCL_USER_ID, CSTCL_WS_ID, CSTCL_PRGM_ID, CSTCL_HOST_TS, CSTCL_LOCAL_TS, CSTCL_ACPT_TS,
+    CSTCL_ACPT_TS_UTC_OFST, CSTCL_LDBID, CSTCL_UUID)
+VALUES
+('CUSTOMER_TYPE', 'Individual', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('CUSTOMER_TYPE', 'Corporate', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID());
+
+-- ===================== NAME TYPES =====================
+INSERT IGNORE INTO CUSTOMER_CLASSIFICATION (CSTCL_TYP, CSTCL_TYP_VALUE, CSTCL_EFCTV_DT, CSTCL_CRUD_VALUE,
+    CSTCL_USER_ID, CSTCL_WS_ID, CSTCL_PRGM_ID, CSTCL_HOST_TS, CSTCL_LOCAL_TS, CSTCL_ACPT_TS,
+    CSTCL_ACPT_TS_UTC_OFST, CSTCL_LDBID, CSTCL_UUID)
+VALUES
+('NAME_TYPE', 'First Name', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('NAME_TYPE', 'Middle Name', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('NAME_TYPE', 'Last Name', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID());
+
+-- ===================== ID TYPES =====================
+INSERT IGNORE INTO CUSTOMER_CLASSIFICATION (CSTCL_TYP, CSTCL_TYP_VALUE, CSTCL_EFCTV_DT, CSTCL_CRUD_VALUE,
+    CSTCL_USER_ID, CSTCL_WS_ID, CSTCL_PRGM_ID, CSTCL_HOST_TS, CSTCL_LOCAL_TS, CSTCL_ACPT_TS,
+    CSTCL_ACPT_TS_UTC_OFST, CSTCL_LDBID, CSTCL_UUID)
+VALUES
+('ID_TYPE', 'Aadhaar', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('ID_TYPE', 'Passport', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('ID_TYPE', 'PAN Card', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('ID_TYPE', 'Driving License', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('ID_TYPE', 'Voter ID', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID());
+
+-- ===================== ADDRESS TYPES =====================
+INSERT IGNORE INTO CUSTOMER_CLASSIFICATION (CSTCL_TYP, CSTCL_TYP_VALUE, CSTCL_EFCTV_DT, CSTCL_CRUD_VALUE,
+    CSTCL_USER_ID, CSTCL_WS_ID, CSTCL_PRGM_ID, CSTCL_HOST_TS, CSTCL_LOCAL_TS, CSTCL_ACPT_TS,
+    CSTCL_ACPT_TS_UTC_OFST, CSTCL_LDBID, CSTCL_UUID)
+VALUES
+('ADDRESS_TYPE', 'First Line', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('ADDRESS_TYPE', 'Middle Line', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('ADDRESS_TYPE', 'Last Line', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('ADDRESS_TYPE', 'City', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('ADDRESS_TYPE', 'State', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('ADDRESS_TYPE', 'Country', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID()),
+('ADDRESS_TYPE', 'Postal Code', '2026-01-01', 'C', 'SYSTEM', 'INIT', 'DATA_LOAD', NOW(), NOW(), NOW(), '+00:00', 1, UUID());
