@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<body>
+    <section layout:fragment="content">
+        <h2 th:text="${customerName.id != null} ? 'Edit Customer Name' : 'Add Customer Name'">Customer Name Form</h2>
+
+        <form th:action="${customerName.id != null} ? @{/customers/names/update/{id}(id=${customerName.id})} : @{/customers/names/save}"
+              th:object="${customerName}" method="post">
+
+            <div class="form-group">
+                <label for="customerNumber">Customer Number</label>
+                <input type="text" class="form-control" id="customerNumber" th:field="*{customerNumber}">
+                <div class="text-danger" th:if="${#fields.hasErrors('customerNumber')}" th:errors="*{customerNumber}"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="nameType">Name Type</label>
+                <select class="form-control" id="nameType" th:field="*{nameType}">
+                    <option value="">-- Select --</option>
+                    <option value="Legal">Legal</option>
+                    <option value="Preferred">Preferred</option>
+                    <option value="Alias">Alias</option>
+                    <option value="Maiden">Maiden</option>
+                </select>
+                <div class="text-danger" th:if="${#fields.hasErrors('nameType')}" th:errors="*{nameType}"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="prefix">Prefix</label>
+                <select class="form-control" id="prefix" th:field="*{prefix}">
+                    <option value="">-- Select --</option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Mrs.">Mrs.</option>
+                    <option value="Ms.">Ms.</option>
+                    <option value="Dr.">Dr.</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" th:field="*{firstName}" maxlength="100">
+                <div class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="middleName">Middle Name</label>
+                <input type="text" class="form-control" id="middleName" th:field="*{middleName}" maxlength="100">
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" th:field="*{lastName}" maxlength="100">
+            </div>
+
+            <div class="form-group">
+                <label for="suffix">Suffix</label>
+                <input type="text" class="form-control" id="suffix" th:field="*{suffix}" maxlength="20">
+            </div>
+
+            <button type="submit" class="btn btn-primary" th:text="${customerName.id != null} ? 'Update' : 'Save'">Save</button>
+            <a th:href="@{/customers/names}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </section>
+</body>
+</html>

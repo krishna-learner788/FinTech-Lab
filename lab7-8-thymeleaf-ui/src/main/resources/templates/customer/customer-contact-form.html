@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<body>
+    <section layout:fragment="content">
+        <h2 th:text="${contact.id != null} ? 'Edit Contact Detail' : 'Add Contact Detail'">Contact Detail Form</h2>
+
+        <form th:action="${contact.id != null} ? @{/customers/contacts/update/{id}(id=${contact.id})} : @{/customers/contacts/save}"
+              th:object="${contact}" method="post">
+
+            <div class="form-group">
+                <label for="customerNumber">Customer Number</label>
+                <input type="text" class="form-control" id="customerNumber" th:field="*{customerNumber}">
+                <div class="text-danger" th:if="${#fields.hasErrors('customerNumber')}" th:errors="*{customerNumber}"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="contactType">Contact Type</label>
+                <select class="form-control" id="contactType" th:field="*{contactType}">
+                    <option value="">-- Select --</option>
+                    <option value="Phone">Phone</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="Email">Email</option>
+                    <option value="Fax">Fax</option>
+                    <option value="WhatsApp">WhatsApp</option>
+                </select>
+                <div class="text-danger" th:if="${#fields.hasErrors('contactType')}" th:errors="*{contactType}"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="contactValue">Contact Value</label>
+                <input type="text" class="form-control" id="contactValue" th:field="*{contactValue}" maxlength="200">
+                <div class="text-danger" th:if="${#fields.hasErrors('contactValue')}" th:errors="*{contactValue}"></div>
+            </div>
+
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="isPrimary" th:field="*{isPrimary}">
+                <label class="form-check-label" for="isPrimary">Is Primary Contact</label>
+            </div>
+
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="isVerified" th:field="*{isVerified}">
+                <label class="form-check-label" for="isVerified">Is Verified</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" th:text="${contact.id != null} ? 'Update' : 'Save'">Save</button>
+            <a th:href="@{/customers/contacts}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </section>
+</body>
+</html>
