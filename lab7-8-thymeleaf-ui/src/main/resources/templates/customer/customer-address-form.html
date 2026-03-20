@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<body>
+    <section layout:fragment="content">
+        <h2 th:text="${address.id != null} ? 'Edit Customer Address' : 'Add Customer Address'">Customer Address Form</h2>
+
+        <form th:action="${address.id != null} ? @{/customers/addresses/update/{id}(id=${address.id})} : @{/customers/addresses/save}"
+              th:object="${address}" method="post">
+
+            <div class="form-group">
+                <label for="customerNumber">Customer Number</label>
+                <input type="text" class="form-control" id="customerNumber" th:field="*{customerNumber}">
+                <div class="text-danger" th:if="${#fields.hasErrors('customerNumber')}" th:errors="*{customerNumber}"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="addressType">Address Type</label>
+                <select class="form-control" id="addressType" th:field="*{addressType}">
+                    <option value="">-- Select --</option>
+                    <option value="Residential">Residential</option>
+                    <option value="Office">Office</option>
+                    <option value="Mailing">Mailing</option>
+                    <option value="Permanent">Permanent</option>
+                </select>
+                <div class="text-danger" th:if="${#fields.hasErrors('addressType')}" th:errors="*{addressType}"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="addressLine1">Address Line 1</label>
+                <input type="text" class="form-control" id="addressLine1" th:field="*{addressLine1}" maxlength="200">
+            </div>
+
+            <div class="form-group">
+                <label for="addressLine2">Address Line 2</label>
+                <input type="text" class="form-control" id="addressLine2" th:field="*{addressLine2}" maxlength="200">
+            </div>
+
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" th:field="*{city}" maxlength="100">
+            </div>
+
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" th:field="*{state}" maxlength="100">
+            </div>
+
+            <div class="form-group">
+                <label for="postalCode">Postal Code</label>
+                <input type="text" class="form-control" id="postalCode" th:field="*{postalCode}" maxlength="20">
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" th:field="*{country}" maxlength="100">
+            </div>
+
+            <button type="submit" class="btn btn-primary" th:text="${address.id != null} ? 'Update' : 'Save'">Save</button>
+            <a th:href="@{/customers/addresses}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </section>
+</body>
+</html>

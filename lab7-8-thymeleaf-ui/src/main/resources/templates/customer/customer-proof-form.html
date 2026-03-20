@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<body>
+    <section layout:fragment="content">
+        <h2 th:text="${proof.id != null} ? 'Edit Proof of Identity' : 'Add Proof of Identity'">Proof of Identity Form</h2>
+
+        <form th:action="${proof.id != null} ? @{/customers/proofs/update/{id}(id=${proof.id})} : @{/customers/proofs/save}"
+              th:object="${proof}" method="post">
+
+            <div class="form-group">
+                <label for="customerNumber">Customer Number</label>
+                <input type="text" class="form-control" id="customerNumber" th:field="*{customerNumber}">
+                <div class="text-danger" th:if="${#fields.hasErrors('customerNumber')}" th:errors="*{customerNumber}"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="idType">ID Type</label>
+                <select class="form-control" id="idType" th:field="*{idType}">
+                    <option value="">-- Select --</option>
+                    <option value="Aadhar">Aadhar</option>
+                    <option value="PAN">PAN Card</option>
+                    <option value="Passport">Passport</option>
+                    <option value="Driving License">Driving License</option>
+                    <option value="Voter ID">Voter ID</option>
+                </select>
+                <div class="text-danger" th:if="${#fields.hasErrors('idType')}" th:errors="*{idType}"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="idNumber">ID Number</label>
+                <input type="text" class="form-control" id="idNumber" th:field="*{idNumber}" maxlength="100">
+                <div class="text-danger" th:if="${#fields.hasErrors('idNumber')}" th:errors="*{idNumber}"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="issueDate">Issue Date</label>
+                <input type="date" class="form-control" id="issueDate" th:field="*{issueDate}">
+            </div>
+
+            <div class="form-group">
+                <label for="expiryDate">Expiry Date</label>
+                <input type="date" class="form-control" id="expiryDate" th:field="*{expiryDate}">
+            </div>
+
+            <div class="form-group">
+                <label for="issuingAuthority">Issuing Authority</label>
+                <input type="text" class="form-control" id="issuingAuthority" th:field="*{issuingAuthority}">
+            </div>
+
+            <div class="form-group">
+                <label for="issuingCountry">Issuing Country</label>
+                <input type="text" class="form-control" id="issuingCountry" th:field="*{issuingCountry}">
+            </div>
+
+            <button type="submit" class="btn btn-primary" th:text="${proof.id != null} ? 'Update' : 'Save'">Save</button>
+            <a th:href="@{/customers/proofs}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </section>
+</body>
+</html>

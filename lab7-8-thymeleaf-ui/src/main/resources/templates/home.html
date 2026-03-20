@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout.html">
+<body>
+    <section layout:fragment="content">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to User Management App</h1>
+            <p class="lead">This is a simple Spring Boot + Thymeleaf application for managing users.</p>
+            <hr class="my-4">
+            <p>Use the navigation bar to manage users - create, view, edit, and delete user records.</p>
+            <a class="btn btn-primary btn-lg" th:href="@{/users}" role="button">View Users</a>
+            <a class="btn btn-success btn-lg" th:href="@{/new}" role="button">Add New User</a>
+        </div>
+    </section>
+</body>
+</html>

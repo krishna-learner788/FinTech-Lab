@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<body>
+    <section layout:fragment="content">
+        <h2>Customer Contact Details</h2>
+        <a th:href="@{/customers/contacts/new}" class="btn btn-success mb-3">Add New Contact</a>
+        <a th:href="@{/customers}" class="btn btn-secondary mb-3">Back to Dashboard</a>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer Number</th>
+                    <th>Contact Type</th>
+                    <th>Contact Value</th>
+                    <th>Primary</th>
+                    <th>Verified</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="contact : ${contacts}">
+                    <td th:text="${contact.id}"></td>
+                    <td th:text="${contact.customerNumber}"></td>
+                    <td th:text="${contact.contactType}"></td>
+                    <td th:text="${contact.contactValue}"></td>
+                    <td th:text="${contact.isPrimary != null and contact.isPrimary} ? 'Yes' : 'No'"></td>
+                    <td th:text="${contact.isVerified != null and contact.isVerified} ? 'Yes' : 'No'"></td>
+                    <td>
+                        <a th:href="@{/customers/contacts/edit/{id}(id=${contact.id})}" class="btn btn-warning btn-sm">Edit</a>
+                        <form th:action="@{/customers/contacts/delete/{id}(id=${contact.id})}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <nav>
+            <ul class="pagination">
+                <li class="page-item" th:if="${currentPage > 1}">
+                    <a class="page-link" th:href="@{'/customers/contacts?page=' + ${currentPage - 1}}">Previous</a>
+                </li>
+                <li class="page-item" th:each="i : ${#numbers.sequence(1, totalPages)}"
+                    th:classappend="${i == currentPage} ? 'active'">
+                    <a class="page-link" th:href="@{'/customers/contacts?page=' + ${i}}" th:text="${i}"></a>
+                </li>
+                <li class="page-item" th:if="${currentPage < totalPages}">
+                    <a class="page-link" th:href="@{'/customers/contacts?page=' + ${currentPage + 1}}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+</body>
+</html>

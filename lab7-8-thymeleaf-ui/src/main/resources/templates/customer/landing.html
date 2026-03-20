@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<body>
+    <section layout:fragment="content">
+        <div class="jumbotron">
+            <h1 class="display-4">Customer Management Portal</h1>
+            <p class="lead">Manage all aspects of customer data - details, names, proof of identity, contact information, and addresses.</p>
+            <hr class="my-4">
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Customer Details</h5>
+                        <p class="card-text">Manage customer basic information including type, status, and contact info.</p>
+                        <p class="card-text"><strong>Total Records:</strong> <span th:text="${totalCustomers}">0</span></p>
+                        <a th:href="@{/customers/details}" class="btn btn-primary">View Details</a>
+                        <a th:href="@{/customers/details/new}" class="btn btn-success">Add New</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Customer Names</h5>
+                        <p class="card-text">Manage customer name components - first, middle, last, prefix, suffix.</p>
+                        <p class="card-text"><strong>Total Records:</strong> <span th:text="${totalNames}">0</span></p>
+                        <a th:href="@{/customers/names}" class="btn btn-primary">View Names</a>
+                        <a th:href="@{/customers/names/new}" class="btn btn-success">Add New</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Proof of Identity</h5>
+                        <p class="card-text">Manage customer identity documents - Aadhar, PAN, Passport, etc.</p>
+                        <p class="card-text"><strong>Total Records:</strong> <span th:text="${totalProofs}">0</span></p>
+                        <a th:href="@{/customers/proofs}" class="btn btn-primary">View Proofs</a>
+                        <a th:href="@{/customers/proofs/new}" class="btn btn-success">Add New</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Contact Details</h5>
+                        <p class="card-text">Manage customer contact information - phone, email, fax, etc.</p>
+                        <p class="card-text"><strong>Total Records:</strong> <span th:text="${totalContacts}">0</span></p>
+                        <a th:href="@{/customers/contacts}" class="btn btn-primary">View Contacts</a>
+                        <a th:href="@{/customers/contacts/new}" class="btn btn-success">Add New</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Customer Addresses</h5>
+                        <p class="card-text">Manage customer addresses - residential, office, mailing, etc.</p>
+                        <p class="card-text"><strong>Total Records:</strong> <span th:text="${totalAddresses}">0</span></p>
+                        <a th:href="@{/customers/addresses}" class="btn btn-primary">View Addresses</a>
+                        <a th:href="@{/customers/addresses/new}" class="btn btn-success">Add New</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
